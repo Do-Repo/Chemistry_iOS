@@ -25,6 +25,7 @@ class AuthViewModel : ObservableObject {
     var name: String = ""
     var passwordConfirm: String = ""
     var phone: String = ""
+    var role : String = "Student"
     
     
     func login(){
@@ -49,12 +50,15 @@ class AuthViewModel : ObservableObject {
     }
     
     func register(){
-        AuthService().signup(body: RegisterRequestBody(name: name, email: email, phone: phone, password: password, passwordConfirm: passwordConfirm)) { result in
+        AuthService().signup(body: RegisterRequestBody(name: name, email: email, phone: phone, password: password, passwordConfirm: passwordConfirm, role: role)) { result in
             switch result {
+                
             case.success(let user):
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     withAnimation{
-                        self.navigateNowToLogin=true
+                        self.currentUser = user?.user!
+                        self.userExtras = user?.extras
+                        self.isAuthenticated = true
                     }
                 }
             case.failure(let error):

@@ -15,7 +15,8 @@ struct AuthView: View {
         if auth.isAuthenticated {
           return  AnyView(TabbarView())
         } else {
-          return  AnyView(ContentView())
+            return  AnyView(ContentView())
+  
         }
     }
 }

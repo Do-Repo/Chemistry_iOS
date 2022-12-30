@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		106E6CC62959F55A00E59CD0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E6CC52959F55A00E59CD0 /* SignupView.swift */; };
+		1074B0E8295DD49000C691D1 /* PostCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1074B0E7295DD49000C691D1 /* PostCourseView.swift */; };
+		10BB6AE0295CBE98003A5D37 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BB6ADF295CBE98003A5D37 /* RadioButton.swift */; };
+		10E54275295CE51B00705235 /* ShakeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E54274295CE51B00705235 /* ShakeAnimator.swift */; };
 		17244EBE2353DC4F00D31F7E /* UIScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17244EBD2353DC4F00D31F7E /* UIScrollViewController.swift */; };
 		5908A51429363D400088DFF4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5908A51329363D400088DFF4 /* SwiftyJSON */; };
 		5908A51729363D600088DFF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5908A51629363D600088DFF4 /* Alamofire */; };
@@ -32,7 +36,6 @@
 		B0CEAF6D292D74B500592D2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAF6C292D74B500592D2A /* Constants.swift */; };
 		F50A2ED222F60C2C00235DAE /* ActivitiesCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A2ED122F60C2C00235DAE /* ActivitiesCartView.swift */; };
 		F5143EB22301F435008D8C89 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5143EB12301F435008D8C89 /* BlurView.swift */; };
-		F51B590722F4CBD300660704 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B590622F4CBD300660704 /* SignUpView.swift */; };
 		F52AA7A722F4883A0051F943 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52AA7A622F4883A0051F943 /* TabBarView.swift */; };
 		F542B64922F2DBF200E490A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F542B64822F2DBF200E490A1 /* AppDelegate.swift */; };
 		F542B64B22F2DBF200E490A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F542B64A22F2DBF200E490A1 /* SceneDelegate.swift */; };
@@ -65,6 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		106E6CC52959F55A00E59CD0 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		1074B0E7295DD49000C691D1 /* PostCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCourseView.swift; sourceTree = "<group>"; };
+		10BB6ADF295CBE98003A5D37 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		10E54274295CE51B00705235 /* ShakeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeAnimator.swift; sourceTree = "<group>"; };
 		17244EBD2353DC4F00D31F7E /* UIScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewController.swift; sourceTree = "<group>"; };
 		5908A5182936F4430088DFF4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		94EAC495293FE00A00A6EADC /* CoursesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesModel.swift; sourceTree = "<group>"; };
@@ -87,7 +94,6 @@
 		B0CEAF6C292D74B500592D2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F50A2ED122F60C2C00235DAE /* ActivitiesCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesCartView.swift; sourceTree = "<group>"; };
 		F5143EB12301F435008D8C89 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		F51B590622F4CBD300660704 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F52AA7A622F4883A0051F943 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		F542B64522F2DBF200E490A1 /* ChemistryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChemistryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F542B64822F2DBF200E490A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,9 +142,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10BB6ADE295CBE8B003A5D37 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				10BB6ADF295CBE98003A5D37 /* RadioButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		10E54273295CE50C00705235 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				10E54274295CE51B00705235 /* ShakeAnimator.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		B0401AD42946383B00882320 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				10E54273295CE50C00705235 /* Animations */,
+				10BB6ADE295CBE8B003A5D37 /* Components */,
 				B0CEAF6C292D74B500592D2A /* Constants.swift */,
 			);
 			path = Utils;
@@ -147,7 +171,6 @@
 		B0CEAF5E292D46CA00592D2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F51B590622F4CBD300660704 /* SignUpView.swift */,
 				F553995622F4998F00872F1B /* LogInView.swift */,
 				F5143EB12301F435008D8C89 /* BlurView.swift */,
 				F52AA7A622F4883A0051F943 /* TabBarView.swift */,
@@ -158,6 +181,8 @@
 				B0AFA6C92934D1FB0084CD97 /* ProfileView.swift */,
 				B01A5C252944DCC80007101B /* CourseView.swift */,
 				B0C617F3294533C3008B1190 /* CartView.swift */,
+				106E6CC52959F55A00E59CD0 /* SignupView.swift */,
+				1074B0E7295DD49000C691D1 /* PostCourseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,10 +437,12 @@
 				F5DDF13922F9EC5B0045277B /* ActivitiesContentView.swift in Sources */,
 				F542B64922F2DBF200E490A1 /* AppDelegate.swift in Sources */,
 				94EAC4A0294022AA00A6EADC /* TagsViewModel.swift in Sources */,
+				10BB6AE0295CBE98003A5D37 /* RadioButton.swift in Sources */,
 				F542B64B22F2DBF200E490A1 /* SceneDelegate.swift in Sources */,
 				B0C617F4294533C3008B1190 /* CartView.swift in Sources */,
 				17244EBE2353DC4F00D31F7E /* UIScrollViewController.swift in Sources */,
 				F5143EB22301F435008D8C89 /* BlurView.swift in Sources */,
+				106E6CC62959F55A00E59CD0 /* SignupView.swift in Sources */,
 				B0CEAF6B292D650200592D2A /* AuthView.swift in Sources */,
 				94EAC49E2940203E00A6EADC /* TagsService.swift in Sources */,
 				B0CEAF69292D4C9800592D2A /* UserModel.swift in Sources */,
@@ -423,10 +450,11 @@
 				B0C617F629453788008B1190 /* CartViewModel.swift in Sources */,
 				B0AFA6CA2934D1FB0084CD97 /* ProfileView.swift in Sources */,
 				B0401AD12946257B00882320 /* SocketService.swift in Sources */,
+				10E54275295CE51B00705235 /* ShakeAnimator.swift in Sources */,
 				F50A2ED222F60C2C00235DAE /* ActivitiesCartView.swift in Sources */,
-				F51B590722F4CBD300660704 /* SignUpView.swift in Sources */,
 				B0CEAF64292D4B6A00592D2A /* AuthService.swift in Sources */,
 				B01A5C262944DCC80007101B /* CourseView.swift in Sources */,
+				1074B0E8295DD49000C691D1 /* PostCourseView.swift in Sources */,
 				94EAC49C29401E9900A6EADC /* TagsModel.swift in Sources */,
 				94EAC496293FE00A00A6EADC /* CoursesModel.swift in Sources */,
 				94EAC49A293FE8A500A6EADC /* CourseServices.swift in Sources */,

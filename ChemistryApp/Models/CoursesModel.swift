@@ -10,9 +10,14 @@ import Foundation
 
 struct Course : Codable {
     let price : Int;
-    let _id, owner, title, content, thumbnail, category, createdAt: String;
+    let _id, owner, title, content, thumbnail, createdAt: String;
     let likes : Int;
     let tags : [String]
+}
+
+struct PostCourseResponse : Codable {
+    let status : String;
+    let course : Course;
 }
 
 struct GetCoursesResponse : Codable {

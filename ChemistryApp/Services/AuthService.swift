@@ -13,7 +13,7 @@ import Alamofire
 
 class AuthService {
     
-    func login(body: LoginRequestBody, completion: @escaping(Result<LoginResponse?, AuthError>) -> Void) {
+    func login(body: LoginRequestBody, completion: @escaping(Result<AuthResponse?, AuthError>) -> Void) {
         AF.request("\(Constants.BASE_URL)api/auth/login",
                    method: .post,
                    parameters: [
@@ -28,7 +28,7 @@ class AuthService {
             case .success:
                 let responseData = Data(res.data!)
                 do {
-                    let parsedData = try JSONDecoder().decode(LoginResponse.self, from: responseData)
+                    let parsedData = try JSONDecoder().decode(AuthResponse.self, from: responseData)
                     UserDefaults.standard.set(parsedData.accessToken, forKey: "token")
                     completion(.success(parsedData))
                 } catch {print(error)}
@@ -41,7 +41,7 @@ class AuthService {
         }
     }
     
-    func signup(body: RegisterRequestBody, completion: @escaping(Result<Any?, AuthError>) -> Void) {
+    func signup(body: RegisterRequestBody, completion: @escaping(Result<AuthResponse?, AuthError>) -> Void) {
         AF.request("\(Constants.BASE_URL)api/auth/register",
                    method: .post,
                    parameters: [
@@ -49,7 +49,8 @@ class AuthService {
                     "email": body.email,
                     "phone": body.phone,
                     "password": body.password,
-                    "passwordConfirm": body.password
+                    "passwordConfirm": body.passwordConfirm,
+                    "role": body.role
                    ],
                    encoding: JSONEncoding.default)
         .validate(statusCode: 200..<300)
@@ -60,10 +61,11 @@ class AuthService {
             case.success:
                 let responseData = Data(res.data!)
                 do {
-                    let parsedData = try JSONDecoder().decode(RegisterResponse.self, from: responseData)
-                    
+                    let parsedData = try JSONDecoder().decode(AuthResponse.self, from: responseData)
+                    UserDefaults.standard.set(parsedData.accessToken, forKey: "token")
                     completion(.success(parsedData))
                 } catch {print(error)}
+                
             case let .failure(err):
                 debugPrint(err)
                 completion(.failure(.custom(errorMessage: err.localizedDescription)))

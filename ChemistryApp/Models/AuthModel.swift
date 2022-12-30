@@ -16,18 +16,14 @@ struct LoginRequestBody : Codable {
     let email, password: String
 }
 
-struct LoginResponse : Codable {
-    let status, accessToken: String?
+struct AuthResponse : Codable {
+    let status, accessToken, message: String?
     let user : User?
     let extras : UserExtras?
 }
 
 struct RegisterRequestBody : Codable {
-    let name, email, phone, password, passwordConfirm : String
+    let name, email, phone, password, passwordConfirm, role : String
 }
 
-struct RegisterResponse : Codable {
-    let status, message : String?
-    let data: User?
-}
 

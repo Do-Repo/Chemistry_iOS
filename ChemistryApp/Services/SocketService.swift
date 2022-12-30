@@ -14,7 +14,7 @@ class SocketService :  ObservableObject {
     private var webSocketTask : URLSessionWebSocketTask?
     
     init( ){
-        let url = URL(string: Constants.SOCKET_URL)!
+        let url = URL(string: Constants.SOCKET_URL + UserDefaults.standard.string(forKey: "token")!)!
         webSocketTask = URLSession.shared.webSocketTask(with: url)
         webSocketTask?.receive(completionHandler: onReceive)
         webSocketTask?.resume()

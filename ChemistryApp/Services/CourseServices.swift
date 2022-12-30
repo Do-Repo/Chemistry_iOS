@@ -51,7 +51,7 @@ class CourseService {
         body.forEach { course in
             courses.append(course._id)
         }
-    
+        
         AF.request("\(Constants.BASE_URL)api/course/buy",
                    method: .post,
                    parameters: [
@@ -80,6 +80,37 @@ class CourseService {
                 debugPrint(err)
                 completion(.failure(.custom(errorMessage: err.localizedDescription)))
             }
+        }
+    }
+    
+    func createCourse( body: Course, image: UIImage, completion: @escaping(Result<Course?, AuthError>) -> Void){
+        let imageData = image.jpegData(compressionQuality: 0.5)
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imageData!, withName: "thumbnail", fileName: "image.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(Data(body.title.utf8), withName: "title")
+            multipartFormData.append(Data(body.content.utf8), withName: "content")
+            multipartFormData.append(Data("\(body.price)".utf8), withName: "price")
+            multipartFormData.append(Data("\(body.tags)".utf8), withName: "tags")
+        }, to: "\(Constants.BASE_URL)api/course/create",
+                  method: .post,
+                  headers: [
+                    .authorization(bearerToken: UserDefaults.standard.string(forKey: "token")!)
+                  ])
+        .uploadProgress(queue: .main, closure:  { progress in
+            print("upload progress: \(progress.fractionCompleted)")
+        })
+        .responseData { res in
+            switch res.result {
+            case .success:
+                let responseData = Data(res.data!)
+                do {
+                    let parsedData = try JSONDecoder().decode(PostCourseResponse.self, from: responseData)
+                    completion(.success(parsedData.course))
+                }catch { print(error)}
+            case .failure(let err): print(err.localizedDescription)
+            }
+            
         }
     }
 }

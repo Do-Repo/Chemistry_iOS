@@ -65,6 +65,15 @@ struct AccountView: View {
                         }
 
                     }
+                    if(auth.currentUser?.role == "Teacher") {
+                        Section(header: Text("Teachers hub")) {
+                            NavigationLink(destination: PostCourseView()) {
+                                Text("Post a Course")
+                            }
+                        }
+                    }
+                    
+                    
                     Section(header: Text("Personal Information")) {
                        NavigationLink(destination: ProfileView()) {
                             Text("Profile Information")
