@@ -69,19 +69,23 @@ struct CartView: View {
                 }
                 if(viewModel.paymentSheet != nil){
                     if(!cart.cartItems.isEmpty){
-                        Button(action: {
-                     
-                        }) {
-                               HStack {
-                                   Text("Proceed checkout")
+                        PaymentSheet.PaymentButton(
+                                            paymentSheet: viewModel.paymentSheet!,
+                                            onCompletion: viewModel.onPaymentCompletion
+                        )
+                             {
+                                   HStack {
+                                       Text("Proceed checkout")
+                                   }
+                                       .padding()
+                                       .frame(width: geometry.size.width - 40, height: 40)
+                                       .foregroundColor(Color.white)
+                                       .background(Color.blue)
+                                       .cornerRadius(5)
                                }
-                                   .padding()
-                                   .frame(width: geometry.size.width - 40, height: 40)
-                                   .foregroundColor(Color.white)
-                                   .background(Color.blue)
-                                   .cornerRadius(5)
-                           }
-                            .padding(.bottom, 40)
+                                .padding(.bottom, 40)
+                        
+                        
                     }
                 }
                         
