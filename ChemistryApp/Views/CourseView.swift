@@ -8,9 +8,6 @@
 import SwiftUI
 import Combine
 
-
-
-
 struct CourseView: View {
     @EnvironmentObject var auth : AuthViewModel
     @EnvironmentObject var cart : CartViewModel
@@ -19,7 +16,7 @@ struct CourseView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 Image("capetown")
                     .resizable()
                     .scaledToFill()
@@ -44,7 +41,6 @@ struct CourseView: View {
                             .fill(
                                 LinearGradient(gradient: Gradient(colors: [.black, .white.opacity(0)]), startPoint: .center, endPoint: .top)
                             )
-                            .frame(height: .infinity)
                             .ignoresSafeArea()
                         
                        

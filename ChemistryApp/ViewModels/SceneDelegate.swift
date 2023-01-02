@@ -27,11 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let course = CoursesViewModel()
             let cart = CartViewModel()
             let tags = TagsViewModel()
+            let payment = SubscriptionViewModel( )
             window.rootViewController = UIHostingController(rootView: AuthView()
                 .environmentObject(auth)
                 .environmentObject(course)
                 .environmentObject(tags)
                 .environmentObject(cart)
+                .environmentObject(payment)
             )
             self.window = window
             window.makeKeyAndVisible()

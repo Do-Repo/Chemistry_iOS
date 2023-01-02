@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Tags : Codable {
+struct Tags : Codable, Equatable {
     let _id, colorCode, name : String;
 }
 

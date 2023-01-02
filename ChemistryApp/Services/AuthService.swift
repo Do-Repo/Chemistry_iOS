@@ -122,6 +122,8 @@ class AuthService {
         .uploadProgress(queue: .main, closure: {
             progress in print("upload progress: \(progress.fractionCompleted)")
         })
+        .validate(statusCode: 200..<300)
+        .validate(contentType: ["application/json"])
         .responseData { res in
             switch res.result {
             case .success:

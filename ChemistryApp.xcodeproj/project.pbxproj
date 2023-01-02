@@ -9,8 +9,24 @@
 /* Begin PBXBuildFile section */
 		106E6CC62959F55A00E59CD0 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106E6CC52959F55A00E59CD0 /* SignupView.swift */; };
 		1074B0E8295DD49000C691D1 /* PostCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1074B0E7295DD49000C691D1 /* PostCourseView.swift */; };
+		1081130429631C170079168E /* PopularCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081130329631C170079168E /* PopularCoursesView.swift */; };
+		10811306296340770079168E /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10811305296340770079168E /* CartCell.swift */; };
 		10BB6AE0295CBE98003A5D37 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BB6ADF295CBE98003A5D37 /* RadioButton.swift */; };
 		10E54275295CE51B00705235 /* ShakeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E54274295CE51B00705235 /* ShakeAnimator.swift */; };
+		10EF46DC29605635005B6FC4 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF46DB29605635005B6FC4 /* TagView.swift */; };
+		10EF46DE29605B30005B6FC4 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF46DD29605B30005B6FC4 /* TagsView.swift */; };
+		10EF46E129606184005B6FC4 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 10EF46E029606184005B6FC4 /* WrappingHStack */; };
+		10F9B080296372A300DAD93E /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9B07F296372A300DAD93E /* SubscriptionViewModel.swift */; };
+		10F9B095296376BE00DAD93E /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B094296376BE00DAD93E /* Stripe */; };
+		10F9B097296376BE00DAD93E /* StripeApplePay in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B096296376BE00DAD93E /* StripeApplePay */; };
+		10F9B099296376BE00DAD93E /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B098296376BE00DAD93E /* StripeCardScan */; };
+		10F9B09B296376BE00DAD93E /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B09A296376BE00DAD93E /* StripeFinancialConnections */; };
+		10F9B09D296376BE00DAD93E /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B09C296376BE00DAD93E /* StripeIdentity */; };
+		10F9B09F296376BE00DAD93E /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B09E296376BE00DAD93E /* StripePaymentSheet */; };
+		10F9B0A1296376BE00DAD93E /* StripePayments in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B0A0296376BE00DAD93E /* StripePayments */; };
+		10F9B0A3296376BE00DAD93E /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 10F9B0A2296376BE00DAD93E /* StripePaymentsUI */; };
+		10F9B0AB296388F500DAD93E /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9B0AA296388F500DAD93E /* SubscriptionModel.swift */; };
+		10F9B0AD2963894A00DAD93E /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9B0AC2963894A00DAD93E /* SubscriptionService.swift */; };
 		17244EBE2353DC4F00D31F7E /* UIScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17244EBD2353DC4F00D31F7E /* UIScrollViewController.swift */; };
 		5908A51429363D400088DFF4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5908A51329363D400088DFF4 /* SwiftyJSON */; };
 		5908A51729363D600088DFF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5908A51629363D600088DFF4 /* Alamofire */; };
@@ -34,7 +50,6 @@
 		B0CEAF69292D4C9800592D2A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAF68292D4C9800592D2A /* UserModel.swift */; };
 		B0CEAF6B292D650200592D2A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAF6A292D650200592D2A /* AuthView.swift */; };
 		B0CEAF6D292D74B500592D2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEAF6C292D74B500592D2A /* Constants.swift */; };
-		F50A2ED222F60C2C00235DAE /* ActivitiesCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50A2ED122F60C2C00235DAE /* ActivitiesCartView.swift */; };
 		F5143EB22301F435008D8C89 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5143EB12301F435008D8C89 /* BlurView.swift */; };
 		F52AA7A722F4883A0051F943 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52AA7A622F4883A0051F943 /* TabBarView.swift */; };
 		F542B64922F2DBF200E490A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F542B64822F2DBF200E490A1 /* AppDelegate.swift */; };
@@ -70,8 +85,15 @@
 /* Begin PBXFileReference section */
 		106E6CC52959F55A00E59CD0 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		1074B0E7295DD49000C691D1 /* PostCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCourseView.swift; sourceTree = "<group>"; };
+		1081130329631C170079168E /* PopularCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCoursesView.swift; sourceTree = "<group>"; };
+		10811305296340770079168E /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		10BB6ADF295CBE98003A5D37 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		10E54274295CE51B00705235 /* ShakeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeAnimator.swift; sourceTree = "<group>"; };
+		10EF46DB29605635005B6FC4 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		10EF46DD29605B30005B6FC4 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		10F9B07F296372A300DAD93E /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
+		10F9B0AA296388F500DAD93E /* SubscriptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionModel.swift; path = ../../../../../.Trash/SubscriptionModel.swift; sourceTree = "<group>"; };
+		10F9B0AC2963894A00DAD93E /* SubscriptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriptionService.swift; path = ../../../../../Desktop/SubscriptionService.swift; sourceTree = "<group>"; };
 		17244EBD2353DC4F00D31F7E /* UIScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewController.swift; sourceTree = "<group>"; };
 		5908A5182936F4430088DFF4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		94EAC495293FE00A00A6EADC /* CoursesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesModel.swift; sourceTree = "<group>"; };
@@ -92,7 +114,6 @@
 		B0CEAF68292D4C9800592D2A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B0CEAF6A292D650200592D2A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		B0CEAF6C292D74B500592D2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F50A2ED122F60C2C00235DAE /* ActivitiesCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesCartView.swift; sourceTree = "<group>"; };
 		F5143EB12301F435008D8C89 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		F52AA7A622F4883A0051F943 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		F542B64522F2DBF200E490A1 /* ChemistryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChemistryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +140,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F9B09D296376BE00DAD93E /* StripeIdentity in Frameworks */,
+				10F9B0A1296376BE00DAD93E /* StripePayments in Frameworks */,
+				10F9B099296376BE00DAD93E /* StripeCardScan in Frameworks */,
+				10F9B09B296376BE00DAD93E /* StripeFinancialConnections in Frameworks */,
+				10F9B095296376BE00DAD93E /* Stripe in Frameworks */,
+				10F9B09F296376BE00DAD93E /* StripePaymentSheet in Frameworks */,
+				10F9B0A3296376BE00DAD93E /* StripePaymentsUI in Frameworks */,
+				10EF46E129606184005B6FC4 /* WrappingHStack in Frameworks */,
 				5908A51429363D400088DFF4 /* SwiftyJSON in Frameworks */,
+				10F9B097296376BE00DAD93E /* StripeApplePay in Frameworks */,
 				5908A51729363D600088DFF4 /* Alamofire in Frameworks */,
 				B0401ACB29461F6E00882320 /* SocketIO in Frameworks */,
 			);
@@ -146,6 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				10BB6ADF295CBE98003A5D37 /* RadioButton.swift */,
+				10EF46DB29605635005B6FC4 /* TagView.swift */,
+				1081130329631C170079168E /* PopularCoursesView.swift */,
+				10811305296340770079168E /* CartCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -175,7 +208,6 @@
 				F5143EB12301F435008D8C89 /* BlurView.swift */,
 				F52AA7A622F4883A0051F943 /* TabBarView.swift */,
 				F5DDF13822F9EC5A0045277B /* ActivitiesContentView.swift */,
-				F50A2ED122F60C2C00235DAE /* ActivitiesCartView.swift */,
 				F553B7E722FCA19400314585 /* AccountView.swift */,
 				B0CEAF6A292D650200592D2A /* AuthView.swift */,
 				B0AFA6C92934D1FB0084CD97 /* ProfileView.swift */,
@@ -183,6 +215,7 @@
 				B0C617F3294533C3008B1190 /* CartView.swift */,
 				106E6CC52959F55A00E59CD0 /* SignupView.swift */,
 				1074B0E7295DD49000C691D1 /* PostCourseView.swift */,
+				10EF46DD29605B30005B6FC4 /* TagsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +230,7 @@
 				94EAC497293FE6A400A6EADC /* CourseViewModel.swift */,
 				94EAC49F294022AA00A6EADC /* TagsViewModel.swift */,
 				B0C617F529453788008B1190 /* CartViewModel.swift */,
+				10F9B07F296372A300DAD93E /* SubscriptionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -207,6 +241,7 @@
 				B0CEAF63292D4B6A00592D2A /* AuthService.swift */,
 				5908A5182936F4430088DFF4 /* ImagePicker.swift */,
 				94EAC499293FE8A500A6EADC /* CourseServices.swift */,
+				10F9B0AC2963894A00DAD93E /* SubscriptionService.swift */,
 				94EAC49D2940203E00A6EADC /* TagsService.swift */,
 				B0401AD02946257B00882320 /* SocketService.swift */,
 			);
@@ -218,6 +253,7 @@
 			children = (
 				B0CEAF66292D4C0300592D2A /* AuthModel.swift */,
 				B0CEAF68292D4C9800592D2A /* UserModel.swift */,
+				10F9B0AA296388F500DAD93E /* SubscriptionModel.swift */,
 				94EAC495293FE00A00A6EADC /* CoursesModel.swift */,
 				94EAC49B29401E9900A6EADC /* TagsModel.swift */,
 				B0401AD22946269200882320 /* SocketModel.swift */,
@@ -308,6 +344,15 @@
 				5908A51329363D400088DFF4 /* SwiftyJSON */,
 				5908A51629363D600088DFF4 /* Alamofire */,
 				B0401ACA29461F6E00882320 /* SocketIO */,
+				10EF46E029606184005B6FC4 /* WrappingHStack */,
+				10F9B094296376BE00DAD93E /* Stripe */,
+				10F9B096296376BE00DAD93E /* StripeApplePay */,
+				10F9B098296376BE00DAD93E /* StripeCardScan */,
+				10F9B09A296376BE00DAD93E /* StripeFinancialConnections */,
+				10F9B09C296376BE00DAD93E /* StripeIdentity */,
+				10F9B09E296376BE00DAD93E /* StripePaymentSheet */,
+				10F9B0A0296376BE00DAD93E /* StripePayments */,
+				10F9B0A2296376BE00DAD93E /* StripePaymentsUI */,
 			);
 			productName = SwiftUIStarterKitApp;
 			productReference = F542B64522F2DBF200E490A1 /* ChemistryApp.app */;
@@ -385,6 +430,8 @@
 				5908A51229363D400088DFF4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				5908A51529363D600088DFF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B0401AC929461F6E00882320 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				10EF46DF29606184005B6FC4 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */,
 			);
 			productRefGroup = F542B64622F2DBF200E490A1 /* Products */;
 			projectDirPath = "";
@@ -436,6 +483,7 @@
 				5908A5192936F4430088DFF4 /* ImagePicker.swift in Sources */,
 				F5DDF13922F9EC5B0045277B /* ActivitiesContentView.swift in Sources */,
 				F542B64922F2DBF200E490A1 /* AppDelegate.swift in Sources */,
+				10811306296340770079168E /* CartCell.swift in Sources */,
 				94EAC4A0294022AA00A6EADC /* TagsViewModel.swift in Sources */,
 				10BB6AE0295CBE98003A5D37 /* RadioButton.swift in Sources */,
 				F542B64B22F2DBF200E490A1 /* SceneDelegate.swift in Sources */,
@@ -445,13 +493,18 @@
 				106E6CC62959F55A00E59CD0 /* SignupView.swift in Sources */,
 				B0CEAF6B292D650200592D2A /* AuthView.swift in Sources */,
 				94EAC49E2940203E00A6EADC /* TagsService.swift in Sources */,
+				10EF46DE29605B30005B6FC4 /* TagsView.swift in Sources */,
 				B0CEAF69292D4C9800592D2A /* UserModel.swift in Sources */,
+				10EF46DC29605635005B6FC4 /* TagView.swift in Sources */,
 				F52AA7A722F4883A0051F943 /* TabBarView.swift in Sources */,
 				B0C617F629453788008B1190 /* CartViewModel.swift in Sources */,
+				10F9B080296372A300DAD93E /* SubscriptionViewModel.swift in Sources */,
+				1081130429631C170079168E /* PopularCoursesView.swift in Sources */,
 				B0AFA6CA2934D1FB0084CD97 /* ProfileView.swift in Sources */,
+				10F9B0AB296388F500DAD93E /* SubscriptionModel.swift in Sources */,
+				10F9B0AD2963894A00DAD93E /* SubscriptionService.swift in Sources */,
 				B0401AD12946257B00882320 /* SocketService.swift in Sources */,
 				10E54275295CE51B00705235 /* ShakeAnimator.swift in Sources */,
-				F50A2ED222F60C2C00235DAE /* ActivitiesCartView.swift in Sources */,
 				B0CEAF64292D4B6A00592D2A /* AuthService.swift in Sources */,
 				B01A5C262944DCC80007101B /* CourseView.swift in Sources */,
 				1074B0E8295DD49000C691D1 /* PostCourseView.swift in Sources */,
@@ -792,6 +845,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		10EF46DF29606184005B6FC4 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5908A51229363D400088DFF4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -819,6 +888,51 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		10EF46E029606184005B6FC4 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10EF46DF29606184005B6FC4 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+		10F9B094296376BE00DAD93E /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
+		};
+		10F9B096296376BE00DAD93E /* StripeApplePay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeApplePay;
+		};
+		10F9B098296376BE00DAD93E /* StripeCardScan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeCardScan;
+		};
+		10F9B09A296376BE00DAD93E /* StripeFinancialConnections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeFinancialConnections;
+		};
+		10F9B09C296376BE00DAD93E /* StripeIdentity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripeIdentity;
+		};
+		10F9B09E296376BE00DAD93E /* StripePaymentSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripePaymentSheet;
+		};
+		10F9B0A0296376BE00DAD93E /* StripePayments */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripePayments;
+		};
+		10F9B0A2296376BE00DAD93E /* StripePaymentsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10F9B093296376BE00DAD93E /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = StripePaymentsUI;
+		};
 		5908A51329363D400088DFF4 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5908A51229363D400088DFF4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

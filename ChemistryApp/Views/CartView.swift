@@ -7,10 +7,15 @@
 //
 
 import SwiftUI
+import StripePaymentSheet
 
 struct CartView: View {
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var auth: AuthViewModel
     @ObservedObject var socket = SocketService()
+    @EnvironmentObject var viewModel : SubscriptionViewModel
+    
+    @State var editing : Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,9 +31,11 @@ struct CartView: View {
                         .padding(.top, 8)
                     Spacer( )
                     Button(action: {
-                        
+                        withAnimation{
+                            editing.toggle()
+                        }
                     }){
-                        Text("Edit")
+                        Text(editing ? "Done" : "Edit")
                     }.foregroundColor(Color.blue)
                         .padding(.trailing, 12)
                         .padding(.top, 8)
@@ -36,69 +43,54 @@ struct CartView: View {
                 
                 ScrollView (.vertical, showsIndicators: false) {
                     VStack (alignment: .leading) {
-                            ForEach(cart.cartItems, id: \._id) { item in
-                                ShoppingCartCellView(item: item).frame(width: geometry.size.width - 24, height: 80)
+                        ForEach(cart.cartItems, id: \._id) { item in
+                            ZStack (alignment: .topTrailing) {
+                                
+                                CartCell(item: item ).frame(width: geometry.size.width - 24, height: 80)
+                                    .padding([.leading, .trailing])
+                                    .padding([.top, .bottom], editing ? 20 : 0 )
+                                
+                                if(editing){
+                                    Button(action: {
+                                        cart.cartItems.remove(at: (cart.cartItems.firstIndex(where: { course in
+                                            course._id == item._id
+                                        })!))
+
+                                    }){
+                                        Image("trash-bin")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .padding(5)
+                                    }
+                                }
                             }
+                        }
                     }
                 }
-            }
+                if(viewModel.paymentSheet != nil){
+                    if(!cart.cartItems.isEmpty){
+                        Button(action: {
+                     
+                        }) {
+                               HStack {
+                                   Text("Proceed checkout")
+                               }
+                                   .padding()
+                                   .frame(width: geometry.size.width - 40, height: 40)
+                                   .foregroundColor(Color.white)
+                                   .background(Color.blue)
+                                   .cornerRadius(5)
+                           }
+                            .padding(.bottom, 40)
+                    }
+                }
+                        
+                    }
+        }.onAppear{
+                viewModel.tokenization(body: SubscriptionBody(price: 100))
+            
         }
     }
 }
 
-struct ShoppingCartCellView: View {
-    var item : Course
-    
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                HStack (spacing: 10) {
-                    AsyncImage(url: URL(string: self.item.thumbnail)){ image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                        .frame(width: 60, height: 60)
-                        .padding(.trailing, 5)
-                        .padding(.leading, 5)
-                    
-                    VStack(alignment: .leading, spacing: 3) {
-                        HStack {
-                            Spacer()
-                        }
-                        Text("\(self.item.title)")
-                            .lineLimit(nil)
-                            .foregroundColor(.primary)
-                        Text("\(self.item.owner)")
-                            .foregroundColor(.primary)
-                            .font(.system(size: 12))
-                            .foregroundColor(Color.gray)
-                        Text("(self.shoppingCartItem.itemColor)")
-                            .foregroundColor(.primary)
-                            .font(.system(size: 12))
-                            .foregroundColor(Color.gray)
-                            .padding(.bottom, 10)
-                    }.frame(width: geometry.size.width - 150)
-                     .padding(.top, 8)
-                    VStack(alignment: .trailing){
-                        //Spacer()
-                        HStack {
-                            Spacer()
-                        }
-                        Text("$\(self.item.price)")
-                            .font(.system(size: 16))
-                            .foregroundColor(Color.black)
-                            .padding(.trailing, 15)
-                           
-                          
-                    }.padding(.bottom, 10)
-                }
-            }
-            
-        }.background(Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255))
-        .cornerRadius(10)
-       
-       
-    }
-}
 

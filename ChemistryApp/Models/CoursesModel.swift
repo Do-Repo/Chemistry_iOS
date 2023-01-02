@@ -25,6 +25,13 @@ struct GetCoursesResponse : Codable {
     let courses: [Course]?
 }
 
+struct PostCourseRequestBody : Codable {
+    let price : Int;
+    let content, title : String;
+    let tags : [String]
+
+}
+
 struct BuyCourseResponse : Codable {
     let status : String
     let extras : UserExtras

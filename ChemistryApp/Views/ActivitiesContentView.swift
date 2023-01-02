@@ -15,75 +15,101 @@ struct ActivitiesContentView: View {
     @EnvironmentObject var tags : TagsViewModel
     @State var isShowing: Bool = false
     @State var selectedCourse : Course? = nil
+    @State var selection: Int? = nil
     
     
     
     var body: some View {
         GeometryReader { g in
             ScrollView{
-                    VStack(alignment: .leading) {
-                        if (self.tags.tags != nil) {
+                VStack(alignment: .leading) {
+                    
+                    
+                    
+                    if (self.tags.tags != nil) {
+                        VStack(alignment: .trailing) {
+                            HStack {
+                                Text("Popular Tags")
+                                    .font(.system(size: 20))
+                                    .padding(.leading, 30)
+                                    .padding(.top, 10)
+                                
+                                Spacer( )
+                                
+                                NavigationLink(destination: TagsView(chosenTags: Binding.constant(nil), comingFrom: "homepage"), tag: 1, selection: $selection) {
+                                    Button(action: {
+                                        self.selection = 1
+                                    }) {
+                                        
+                                        Text("Show all")
+                                            .font(.headline)
+                                            .foregroundColor(Color.black)
+                                        
+                                    }
+                                }.padding([.trailing], 10)
+                            }
+                            
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack (spacing: 10){
-                                    ForEach(self.tags.tags!, id: \._id) { item in
-                                        ShopPromotionBannerView(tag: item)
-                                                .frame(width: 120, height: 60)
+                                    ForEach((self.tags.tags?.prefix(4))!, id: \._id) { item in
+                                        TagItem(tag: item)
                                     }
                                 }.padding(.leading, 30)
+                                    .padding(.trailing, 30)
+                                    .padding([.bottom, .top], 10)
+                                
+                            }
+                        }
+                    }
+                    
+                    
+                    Text("Popular Courses")
+                        .font(.system(size: 20))
+                        .padding(.leading, 30)
+                        .padding(.top, 10)
+                    if (self.courses.courses != nil) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack (spacing: 10) {
+                                ForEach(self.courses.courses!, id: \._id)  { item in
+                                    Button(action: {
+                                        self.isShowing = true
+                                        self.selectedCourse = item
+                                    }) {
+                                        PopularCoursesView(course: item)
+                                            .frame(width: 155, height: 225)
+                                    }
+                                }
+                                
+                            }.padding(.leading, 30)
                                 .padding(.trailing, 30)
                                 .padding(.bottom, 10)
-                            }
-                            .padding(.top, 20)
+                            
                         }
-                        
-                        
-                        Text("Popular Courses")
-                            .font(.system(size: 20))
-                            .padding(.leading, 30)
-                            .padding(.top, 10)
-                        if (self.courses.courses != nil) {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                        HStack (spacing: 10) {
-                                            ForEach(self.courses.courses!, id: \._id)  { item in
-                                                Button(action: {
-                                                    self.isShowing = true
-                                                    self.selectedCourse = item
-                                                }) {
-                                                    ShopBestSellerViews(course: item)
-                                                                        .frame(width: 155, height: 225)
-                                                }
-                                            }
-                                            
-                                    }.padding(.leading, 30)
-                                     .padding(.trailing, 30)
-                                     .padding(.bottom, 10)
-                                    
-                            }
-                        }
-                        
-                        if(self.courses.courses != nil) {
-                            VStack (spacing: 20) {
-                                ForEach(self.courses.courses!, id: \._id)  { item in
-                                    ShopNewProductViews(course: item)
-                                             .frame(width: g.size.width - 60, height: g.size.width - 60)
-                                }
-                            }.padding(.leading, 30)
-                        }
-                        
-                        
-                        
                     }
-                    .navigationBarTitle("Explore")
-                    .navigationBarItems(trailing:
-                    Button(action: {
-                        auth.logout()
-                    }) {
-                        Text("Log Out")
-                    })
+                    
+                    if(self.courses.courses != nil) {
+                        VStack (spacing: 20) {
+                            ForEach(self.courses.courses!, id: \._id)  { item in
+                                CoursesShortView(course: item)
+                                    .frame(width: g.size.width - 60, height: g.size.width - 60)
+                            }
+                        }.padding(.leading, 30)
+                    }
+                    
+                    
+                    
+                }
+                .navigationBarTitle("Explore")
+                .navigationBarItems(trailing:
+                                        Button(action: {
+                    auth.logout()
+                }) {
+                    Text("Log Out")
+                })
             }
             
             .sheet(isPresented: self.$isShowing) { CourseView(course: self.$selectedCourse) }
-                
+            
         }.onAppear() {
             self.courses.getCourses()
             self.tags.getTags()
@@ -93,69 +119,7 @@ struct ActivitiesContentView: View {
 
 
 
-struct ShopBestSellerViews: View {
-    
-    var course: Course
-    
-    var body: some View {
-            ZStack{
-                Image("\(course.thumbnail)").renderingMode(.original)
-                        .resizable()
-                        .frame(width: 155, height: 225)
-                        .background(Color.black)
-                        .cornerRadius(10)
-                        .opacity(0.8)
-                        .aspectRatio(contentMode: .fill)
-               
-                VStack (alignment: .leading) {
-                    Spacer()
-                    
-                    Text(course.title)
-                        .foregroundColor(Color.white)
-                        .font(.system(size: 20, weight: .bold, design: Font.Design.default))
-                        .padding(.bottom, 24)
-                }
-                    
-                
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            .background(Color.white)
-          
-    }
-}
-
-struct ShopPromotionBannerView: View {
-    var tag: Tags
-    
-    var body: some View {
-        
-        Button(action: {
-            
-        }) {
-            GeometryReader { g in
-                   ZStack{
-                       Image("\(tag.colorCode)").renderingMode(.original)
-                       .resizable()
-                       .opacity(0.8)
-                       .aspectRatio(contentMode: .fill)
-                       .background(Color(tag.colorCode))
-                    
-                    
-                    
-                       Text(tag.name)
-                                    .font(.system(size: 14, weight: .bold, design: Font.Design.default))
-                                     .foregroundColor(Color.white)
-                    
-                               
-                   }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                   .cornerRadius(15)
-               }
-        }
-    }
-}
-
-
-struct ShopNewProductViews: View {
+struct CoursesShortView: View {
     var course: Course
     
     var body: some View {
@@ -173,13 +137,13 @@ struct ShopNewProductViews: View {
                         .font(.system(size: 14))
                         .foregroundColor(Color.black)
                     
-                     Spacer()
+                    Spacer()
                 }
-                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 .background(Color(red: 242 / 255, green: 242 / 255, blue: 242 / 255))
                 .cornerRadius(10)
-                
-            }
+            
         }
     }
+}
 

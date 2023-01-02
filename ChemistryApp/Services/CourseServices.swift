@@ -83,15 +83,22 @@ class CourseService {
         }
     }
     
-    func createCourse( body: Course, image: UIImage, completion: @escaping(Result<Course?, AuthError>) -> Void){
-        let imageData = image.jpegData(compressionQuality: 0.5)
-        
+    func createCourse( body: PostCourseRequestBody, thumbnail: UIImage, completion: @escaping(Result<Course?, AuthError>) -> Void){
+        let parameters = [
+            "title": body.title,
+            "content": body.content,
+            "price": "\(body.price)",
+            "tags": "\(body.tags)"
+        ]
+        let imageData = thumbnail.jpegData(compressionQuality: 0.5)
+      
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData!, withName: "thumbnail", fileName: "image.jpeg", mimeType: "image/jpeg")
-            multipartFormData.append(Data(body.title.utf8), withName: "title")
-            multipartFormData.append(Data(body.content.utf8), withName: "content")
-            multipartFormData.append(Data("\(body.price)".utf8), withName: "price")
-            multipartFormData.append(Data("\(body.tags)".utf8), withName: "tags")
+            
+                for (key, value) in parameters {
+                    multipartFormData.append(value.data(using: .utf8)!, withName: key)
+                }
+            
         }, to: "\(Constants.BASE_URL)api/course/create",
                   method: .post,
                   headers: [
@@ -100,6 +107,8 @@ class CourseService {
         .uploadProgress(queue: .main, closure:  { progress in
             print("upload progress: \(progress.fractionCompleted)")
         })
+        .validate(statusCode: 200..<300)
+        .validate(contentType: ["application/json"])
         .responseData { res in
             switch res.result {
             case .success:
